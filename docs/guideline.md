@@ -6,8 +6,8 @@
 
 ## 准备
 1. 下载模型  
-huggingface: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/tree/main
-baidu disk: https://pan.baidu.com/s/1YvAYrDD6DfoxpwD2kT5n3w?pwd=1234
+- huggingface: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/tree/main
+- baidu disk: https://pan.baidu.com/s/1YvAYrDD6DfoxpwD2kT5n3w?pwd=1234
 2. 配置开发环境及源码
 ```
 poetry
