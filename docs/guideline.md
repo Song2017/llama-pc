@@ -1,3 +1,23 @@
+# 如何在PC上运行大模型
+在PC上使用CPU运行大模型不如使用GPU高效，但仍然是可以实现的大模型推理。   
+大模型训练要求的资源更高，这里直接使用面向开源的Facebook's LLaMA model(llama-2-7b-chat.Q2_K.gguf)。   
+连接CPU与LLaMA model的是[llama.cpp](https://github.com/ggerganov/llama.cpp)。   
+为方便使用，添加了简单的server和UI。
+
+## 准备
+1. 下载模型  
+huggingface: https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/tree/main
+baidu disk: https://pan.baidu.com/s/1YvAYrDD6DfoxpwD2kT5n3w?pwd=1234
+2. 配置开发环境及源码
+```
+poetry
+python = "^3.12"
+llama-cpp-python = "^0.2.20"
+flask = "3.0.0"
+flask-restx = "^1.3.0"
+
+源码 https://github.com/Song2017/llama-pc/blob/main/llama_pc/server.py
+
 import datetime
 import os
 
@@ -71,3 +91,17 @@ def generate_response(data: dict):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
+```
+
+## 运行
+```
+export MODEL_PATH='/Users/_git/llama-pc/huggingface/llama-2-7b-chat.Q2_K.gguf'
+# poetry run python ./llama_pc/server.py
+python ./llama_pc/server.py
+```
+## 推理结果
+![img](img.png)
+
+## refer
+- https://github.com/ggerganov/llama.cpp
+- https://medium.com/@penkow/how-to-run-llama-2-locally-on-cpu-docker-image-731eae6398d1
