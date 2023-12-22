@@ -1,7 +1,7 @@
 from llama_cpp import Llama
 
 # Put the location of to the GGUF model that you've download from HuggingFace here
-model_path = "path to llama-2-7b-chat.Q2_K.gguf"
+model_path = "huggingface/llama-2-7b-chat.Q2_K.gguf"
 
 # Create a llama model
 model = Llama(model_path=model_path)

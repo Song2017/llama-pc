@@ -5,7 +5,7 @@ from flask_restx import Api, Resource, fields
 from llama_cpp import Llama
 
 model = None
-_model_path = "path to llama-2-7b-chat.Q2_K.gguf"
+_model_path = "/Users/songgs/_git/llama-pc/huggingface/llama-2-7b-chat.Q2_K.gguf"
 _system_message = "You are a helpful assistant"
 _max_tokens = 500
 
@@ -51,12 +51,10 @@ def generate_response(data: dict):
                 model = Llama(model_path=_model_path)
 
             # Run the model
-
             output = model(prompt, max_tokens=max_tokens, echo=True)
             print(output, datetime.datetime.now())
             choice_text = output.get("choices", [{}])[0].get("text")
             choice_text.replace(prompt, "")
-
             return jsonify({
                 "question": user_message,
                 "timing": str(datetime.datetime.now() - start_time),
