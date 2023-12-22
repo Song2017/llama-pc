@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "llama-pc"
+version = "0.1.0"
+description = ""
+authors = ["Ben Song <ben.song@samarkand.global>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+llama-cpp-python = "^0.2.20"
+flask = "3.0.0"
+flask-restx = "^1.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+# 将下方配置添加至pyproject.toml末尾即可
+[[tool.poetry.source]]
+name = "aliyun-source"
+url = "http://mirrors.aliyun.com/pypi/simple/"
+priority = "default" 
